@@ -1,23 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <Navbar/>
+    
+    <!-- <transition name="route-transition"> -->
+        <router-view :key="$route.fullPath"></router-view>
+      <!-- </transition> -->
   </div>
 </template>
 
 <script>
+import Navbar from "@/components/shared/navbar/Navbar.vue";
+
 export default {
-  name: 'App'
-}
+  name: "App",
+  components: {
+    Navbar
+  }
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
+
 </style>

@@ -1,0 +1,77 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
+      <a class="navbar-brand" href="#" @click.prevent='dashboard'>First Mile</a>
+     
+      <form class="input-group" @submit.prevent="searchTest()">
+          <div class="input-group">
+              <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              <div class="input-group-append">
+                  <button type="submit" class="input-group-text" id="basic-addon1">
+                      <span class="fas fa-search"></span>
+                  </button>
+              </div>
+          </div>
+      </form>
+      
+      <div class="nav-actions">
+          <ul class="navbar-nav mr-auto float-left">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="request" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fas fa-exchange-alt"></span>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="request">
+                    ...
+                  </div>
+              </li>
+          </ul>
+          <ul class="navbar-nav mr-auto float-left">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="graylist" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fas fa-ban"></span>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="graylist">
+                    ...
+                  </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="alert" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fas fa-bell"></span>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="alert">
+                    ...
+                  </div>
+              </li>
+
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="credit" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fas fa-sync"></span>
+                    <span>623</span>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="credit">
+                    ...
+                  </div>
+              </li>
+          </ul>
+          <ul class="navbar-nav mr-auto float-left">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="fas fa-user"></span>
+                      <span class="text">{{ username }}</span>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <router-link class="dropdown-item" to="configuration">
+                          <span class="fas fa-cogs"></span>
+                          <span class="text">Configuration</span>
+                      </router-link>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" @click.prevent="logout">
+                          <span class="fas fa-sign-out-alt"></span>
+                          <span class="text">Logout</span>
+                      </a>
+                  </div>
+              </li>
+          </ul>
+      </div>
+  </nav>
+</header>
