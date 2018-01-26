@@ -1,43 +1,27 @@
 import axios from 'axios'
 
-export const url = 'http://localhost:8199/'
+export const key = 'AIzaSyDUs2Rv4uEE9n2v6NRPr3Ma2r3EyCWi3vU'
 
+// https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=cs+go&key=AIzaSyDUs2Rv4uEE9n2v6NRPr3Ma2r3EyCWi3vU
 export default {
   data () {
     return {
-      getRequest: []
+      result: []
     }
   },
   methods: {
-    getData (path) {
-      return axios.get(url + path)
+    searchVideos: function (query) {
+      query = this.validateQuery(query)
+      return axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=${query}&key=${key}`)
         .then(response => {
-          this.getRequest = response.data
+          this.result = response.data.items
         })
         .catch(e => {
           return this.errors.push(e)
         })
     },
-    postData (path, body) {
-      return axios.post(url + path, body)
-      // .then(response => {
-      //     this.getRequest = response.data
-      //  })
-      //  .catch(e => {
-      //      return this.errors.push(e)
-      //  })
-    },
-    putData (path, body) {
-      return axios.put(url + path + '/' + body.id, body)
-    },
-    removeData (path, id) {
-      return axios.delete(url + path + '/' + id)
-      // .then(response => {
-      //     this.getRequest = response.data
-      //  })
-      //  .catch(e => {
-      //      return this.errors.push(e)
-      //  })
+    validateQuery: function (query) { //...
+      return query.replace(' ', '+')
     }
   }
 }
