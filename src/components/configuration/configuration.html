@@ -1,0 +1,50 @@
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Configure daily time</h5>
+                <button type="button" class="close" @click="closeModal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form @submit.prevent="saveConfigurations">
+                <div class="modal-body">
+                    <p>Here is our default configuration time for watch video per day. Configure on your own way or just click
+                        "Save" to present the results. (time in minutes)</p>
+                    <div class="form-group">
+                        <label for="sunday">Sunday</label>
+                        <input type="number" name="sunday" v-model="watchTime.sunday">
+                    </div>
+                    <div class="form-group">
+                        <label for="monday">Monday</label>
+                        <input type="number" name="monday" v-model="watchTime.monday">
+                    </div>
+                    <div class="form-group">
+                        <label for="tuesday">Tuesday</label>
+                        <input type="number" name="tuesday" v-model="watchTime.tuesday">
+                    </div>
+                    <div class="form-group">
+                        <label for="wednesday">Wednesday</label>
+                        <input type="number" name="wednesday" v-model="watchTime.wednesday">
+                    </div>
+                    <div class="form-group">
+                        <label for="thursday">Thursday</label>
+                        <input type="number" name="thursday" v-model="watchTime.thursday">
+                    </div>
+                    <div class="form-group">
+                        <label for="friday">Friday</label>
+                        <input type="number" name="friday" v-model="watchTime.friday">
+                    </div>
+                    <div class="form-group">
+                        <label for="saturday">Saturday</label>
+                        <input type="number" name="saturday" v-model="watchTime.saturday">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -14,7 +14,7 @@
         </form>
 
         <div class="nav-actions">
-                <ul class="navbar-nav mr-auto float-left">
+                <!-- <ul class="navbar-nav mr-auto float-left">
                     <li class="mr-3">
                         <label class="mb-0 text-center" for="monday">M</label>
                         <p class="mb-0 text-center" >{{ watchTime.monday }}</p>
@@ -32,7 +32,7 @@
                         <p class="mb-0 text-center" >{{ watchTime.thursday }}</p>
                     </li>
                     <li class="mr-3">
-                        <label class="mb-0 text-center" for="friday">D</label>
+                        <label class="mb-0 text-center" for="friday">F</label>
                         <p class="mb-0 text-center" >{{ watchTime.friday }}</p>
                     </li>
                     <li class="mr-3">
@@ -43,7 +43,7 @@
                         <label class="mb-0 text-center" for="sunday">S</label>
                         <p class="mb-0 text-center" >{{ watchTime.sunday }}</p>
                     </li>
-                </ul>
+                </ul> -->
 
 
 
@@ -51,7 +51,7 @@
 
 
 
-            <button class="btn btn-conf">
+            <button class="btn btn-conf" @click="openConfiguration">
                 <span class="fas fa-cog" />
             </button>
             <!--<ul class="navbar-nav mr-auto float-left">
