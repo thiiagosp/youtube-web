@@ -6,15 +6,16 @@ export const key = 'AIzaSyDUs2Rv4uEE9n2v6NRPr3Ma2r3EyCWi3vU'
 export default {
   data () {
     return {
-      result: []
+      response: []
     }
   },
   methods: {
     searchVideos: function (query) {
+      let maxResult = 200
       query = this.validateQuery(query)
       return axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=${query}&key=${key}`)
         .then(response => {
-          this.result = response.data.items
+          this.response = response.data
         })
         .catch(e => {
           return this.errors.push(e)

@@ -1,20 +1,14 @@
 
 export default {
   name: 'Main',
-  props: ['videos'],
   data () {
     return {
-      // videos: []
-    }
-  },
-  computed: {
-    videoss: function () {
-      return this.videos
+      videos: this.$route.params.videos
     }
   },
   methods: {
-    vai: function () {
-      alert(this.videoss)
-    }
+  },
+  mounted () {
+    console.log(this.$route.params)
   }
 }

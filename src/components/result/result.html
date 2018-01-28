@@ -1,7 +1,12 @@
-<section>
-  
-  <ul>
-    <li v-for="video of videos">{{ video.snippet.title}} //</li>
-    <button @click="vai">aaa</button>
-  </ul>
-</section>
+<div class="container">
+  <div class="row">
+    <div class="card col-md-3" v-for="video of videos">
+      <img class="card-img-top" :src="video.snippet.thumbnails.high.url" :alt="video.snippet.channelTittle">
+      <div class="card-body">
+        <h5 class="card-title">{{ video.snippet.title }}</h5>
+        <p class="card-text" v-html="video.snippet.description"></p>
+        <a v-bind:href="'https://www.youtube.com/watch?v=' + video.id.videoId" target="_blank" class="btn btn-primary">Watch Video</a>
+      </div>
+    </div>
+  </div>
+</div>

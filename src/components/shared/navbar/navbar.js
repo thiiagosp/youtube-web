@@ -4,19 +4,36 @@ export default {
 	mixins: [Requests],
   data () {
     return {
-      query: ''
+      query: '',
+      
+    }
+  },
+  computed: {
+    watchTime: function () {
+      return localStorage.getItem('watchTime') || {
+        'monday': 5,
+        'tuesday': 10,
+        'wednesday': 15,
+        'thursday': 20,
+        'friday': 25,
+        'saturday': 30,
+        'sunday': 35,
+      }
     }
   },
   methods: {
+    goToMain: function () {
+      this.$router.push('/')
+    },
     search: function () {
       if (!this.query) {
         return alert('query empty')
       }
+      this.$root.$emit('videos', [])
       this.searchVideos(this.query)
       .then( () => {
-        console.log(this.result)
-        // this.$route.push({path: '/result', params: this.result})
-        this.$router.push({ name: "Result", params: { videos: this.result } })
+        console.log(this.response)
+        this.$root.$emit('videos', this.response)
       })
     }
   }

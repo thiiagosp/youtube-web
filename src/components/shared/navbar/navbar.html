@@ -1,6 +1,6 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
-        <a class="navbar-brand" href="#" @click.prevent='dashboard'>Youtube</a>
+    <nav class="navbar navbar-red navbar-expand-lg justify-content-between">
+        <a class="navbar-brand" href="#" @click.prevent='goToMain'>Youtube</a>
 
         <form class="input-group" @submit.prevent="search">
             <div class="input-group">
@@ -14,6 +14,46 @@
         </form>
 
         <div class="nav-actions">
+                <ul class="navbar-nav mr-auto float-left">
+                    <li class="mr-3">
+                        <label class="mb-0 text-center" for="monday">M</label>
+                        <p class="mb-0 text-center" >{{ watchTime.monday }}</p>
+                    </li>    
+                    <li class="mr-3">
+                        <label class="mb-0 text-center" for="tuesday">T</label>
+                        <p class="mb-0 text-center" >{{ watchTime.tuesday }}</p>
+                    </li>
+                    <li class="mr-3">
+                        <label class="mb-0 text-center" for="wednesday">W</label>
+                        <p class="mb-0 text-center" >{{ watchTime.wednesday }}</p>
+                    </li>
+                    <li class="mr-3">
+                        <label class="mb-0 text-center" for="thursday">T</label>
+                        <p class="mb-0 text-center" >{{ watchTime.thursday }}</p>
+                    </li>
+                    <li class="mr-3">
+                        <label class="mb-0 text-center" for="friday">D</label>
+                        <p class="mb-0 text-center" >{{ watchTime.friday }}</p>
+                    </li>
+                    <li class="mr-3">
+                        <label class="mb-0 text-center" for="saturday">S</label>
+                        <p class="mb-0 text-center" >{{ watchTime.saturday }}</p>
+                    </li>
+                    <li class="mr-3">
+                        <label class="mb-0 text-center" for="sunday">S</label>
+                        <p class="mb-0 text-center" >{{ watchTime.sunday }}</p>
+                    </li>
+                </ul>
+
+
+
+
+
+
+
+            <button class="btn btn-conf">
+                <span class="fas fa-cog" />
+            </button>
             <!--<ul class="navbar-nav mr-auto float-left">
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
