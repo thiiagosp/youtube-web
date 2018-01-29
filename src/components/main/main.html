@@ -2,14 +2,15 @@
   
   <div v-if="videos">
     <nav class="navbar navbar-expand-lg justify-content-between mb-2 border-bottom">
-      <h5>Total Results: {{ results.pageInfo.totalResults }}</h5>
+      <h6>Total Days: {{ schedule.length }}</h6>
       <h6>Top Keywords: 
         <span v-for="word of topKeywords">{{ word }}, </span>
       </h6>
     </nav>
     <div class="container">
-      <div class="row">
-        <div class="card col-md-3" v-for="video of videos">
+      <div class="row" v-for="day of schedule">
+        <h2>{{ day.name }}</h2>
+        <div class="card col-md-3" v-for="video of day.videos">
           <img class="card-img-top" :src="video.snippet.thumbnails.high.url" :alt="video.snippet.channelTittle">
           <div class="card-body">
             <h5 class="card-title">{{ video.snippet.title }}</h5>

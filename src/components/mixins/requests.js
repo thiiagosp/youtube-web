@@ -4,7 +4,7 @@ export const key = 'AIzaSyDUs2Rv4uEE9n2v6NRPr3Ma2r3EyCWi3vU'
 
 // https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=cs+go&key=AIzaSyDUs2Rv4uEE9n2v6NRPr3Ma2r3EyCWi3vU
 export default {
-  data() {
+  data () {
     return {
       response: [],
       url: 'https://www.googleapis.com/youtube/v3/'
@@ -19,12 +19,12 @@ export default {
     searchVideos: function (query) {
       const maxResult = 50
       query = this.validateQuery(query)
-      return axios.get(`${this.url}search?part=snippet&maxResults=${maxResult}&type=video&eventType=completed&q=${query}&key=${key}`)
+      return axios.get(`${this.url}search?part=snippet&maxResults=${maxResult}&type=video&q=${query}&key=${key}`)
         .then(response => {
           let ids = this.getVideosId(response.data.items)
           return this.getContentDetailsVideo(ids)
-
         })
+
         .catch(e => {
           return this.errors.push(e)
         })
@@ -38,7 +38,7 @@ export default {
           return this.errors.push(e)
         })
     },
-    validateQuery: function (query) { //...
+    validateQuery: function (query) {
       return query.replace(' ', '+')
     }
   }

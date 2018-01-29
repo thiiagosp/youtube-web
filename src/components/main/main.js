@@ -12,7 +12,7 @@ export default {
       loading: false,
       videos: null,
       results: null,
-      schedule: {},
+      schedule: [],
       topKeywords: []
     }
   },
@@ -36,27 +36,25 @@ export default {
         })
     },
     removeVideosLongestMaxTime: function () {
-      console.log(this.videos)
       let watchTime = JSON.parse(localStorage.getItem('watchTime'))
       let maxTime = Object.keys(watchTime).reduce((a, b) => {
         return watchTime[a] > watchTime[b] ? watchTime[a] : watchTime[b];
       })
       this.videos.forEach(video => {
-        if (this.convertDurationTimeToMinutes(video.contentDetails.duration) > maxTime) {
-          this.videos.splice(this.videos.indexOf(video),1)
+        if (this.convertTimeToMinutes(video.contentDetails.duration) > maxTime) {
+          this.videos.splice(this.videos.indexOf(video), 1)
         }
       })
     },
-    convertDurationTimeToMinutes: function (duration) {
+    convertTimeToMinutes: function (duration) {
       if (!duration) {
         return
       }
       return moment.duration(duration).asMinutes()
     },
-
     getKeywords: function () {
+      this.topKeywords = []
       let keywords = {}
-      const self = this;
       if (this.videos) {
         this.videos.forEach(video => {
           let words = video.snippet.title.split(' ')
@@ -78,23 +76,43 @@ export default {
           return keywords[a] > keywords[b] ? a : b;
         })
         keys.splice(keys.indexOf(r), 1)
-        self.topKeywords.push(r)
-
+        this.topKeywords.push(r)
       }
-
     },
-
-    configureSchedule: function () {
-      weekTime = JSON.parse(localStorage.getItem('watchTime'))
-
-      this.videos.forEach( video => {
-        let videoDuration = this.convertDurationTimeToMinutes(video.contentDetails.duration)
-        
+    getWeek: function () {
+      let weekTime = JSON.parse(localStorage.getItem('watchTime'))
+      const week = []
+      Object.keys(weekTime).forEach(day => {
+        week.push({ 
+          name: day, 
+          durationTime: moment.duration(parseInt(weekTime[day]), 'minutes').asMilliseconds(), 
+          remain: moment.duration(parseInt(weekTime[day]), 'minutes').asMilliseconds(), 
+          videos: [] 
+        })
       })
+      return week
+    },
+    configureSchedule: function () {
+      let weekStorage = this.getWeek()
+
+      this.videos.forEach(video => {
+        const weekModel = this.getWeek()
+        let videoDuration = moment.duration(video.contentDetails.duration).asMilliseconds()
+        for( let i = 0; i < weekModel.length; i++) {
+          if (videoDuration > weekModel[i].durationTime) {
+            continue
+          }
+          if (weekStorage[i].name && videoDuration <= weekStorage[i].remain) {
+            weekStorage[i].remain -= videoDuration
+            weekStorage[i].videos.push(video)
+            return
+          }
+        }
+        this.schedule = this.schedule.concat(weekStorage)
+        weekStorage = this.getWeek()
+      })
+
     }
-
-
-
 
   }
 }
