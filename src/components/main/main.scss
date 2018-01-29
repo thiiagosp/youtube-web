@@ -7,6 +7,8 @@
 }
 .card-image {
     width: 85%;
+    margin: 0 auto;
+    display: block;
 }
 .card-subtitle {
     color: #777;
@@ -41,4 +43,11 @@
     color: #bdbdbd;
     // font-weight: 600;
     margin: 50px auto 70px auto;
+}
+
+@media (max-width: 480px) {
+    .day-title, .card-subtitle, .card-text, 
+    .card-title, .no-search, .no-video {
+        text-align: center;
+    }
 }
