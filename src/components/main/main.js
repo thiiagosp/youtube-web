@@ -9,7 +9,6 @@ export default {
   },
   data() {
     return {
-      loading: false,
       config: false,
       videos: null,
       results: null,
@@ -27,9 +26,6 @@ export default {
     })
     this.$root.$on('config', data => {
       this.config = data;
-    })
-    this.$root.$on('loading', load => {
-      this.loading = load;
     })
   },
   methods: {
