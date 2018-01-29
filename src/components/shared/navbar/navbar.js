@@ -1,7 +1,7 @@
-import Requests from '../../mixins/requests.js'
+import Services from '../../mixins/services.js'
 export default {
   name: 'Navbar',
-	mixins: [Requests],
+	mixins: [Services],
   data () {
     return {
       query: '',
