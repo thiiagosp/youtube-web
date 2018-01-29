@@ -18,13 +18,15 @@ export default {
       this.$router.push('/')
     },
     getVideos: function () {
+      this.$root.$emit('loading', true)
       this.searchVideos(this.query)
       .then( () => {
         this.$root.$emit('videos', this.response)
+        this.$root.$emit('loading', false)
       })
     },
     openConfiguration: function () {
-      this.$root.$emit('loading', true)
+      this.$root.$emit('config', true)
     },
     search: function () {
       let watchTime = JSON.parse(localStorage.getItem('watchTime'))

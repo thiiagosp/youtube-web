@@ -10,6 +10,7 @@ export default {
   data() {
     return {
       loading: false,
+      config: false,
       videos: null,
       results: null,
       schedule: [],
@@ -24,8 +25,11 @@ export default {
       this.configureSchedule()
       this.getKeywords()
     })
-    this.$root.$on('loading', data => {
-      this.loading = data;
+    this.$root.$on('config', data => {
+      this.config = data;
+    })
+    this.$root.$on('loading', load => {
+      this.loading = load;
     })
   },
   methods: {

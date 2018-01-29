@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     closeModal: function () {
-      this.$root.$emit('loading', false)
+      this.$root.$emit('config', false)
     },
     saveConfigurations: function () {
       localStorage.setItem('watchTime', JSON.stringify(this.watchTime))

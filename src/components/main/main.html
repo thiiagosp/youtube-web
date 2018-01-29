@@ -35,5 +35,6 @@
       <h6 class="no-search">You have not done any search yet</h6>
     </div>
   </div>
-  <ConfigurationModal v-if="loading" />
+  <ConfigurationModal v-if="config" />
+  <div v-if="loading" class="loading">Loading&#8230;</div>
 </div>
