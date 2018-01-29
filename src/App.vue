@@ -12,9 +12,6 @@ export default {
   name: 'App',
   components: {
     Navbar
-  },
-  beforeMount () {
-    this.$router.push('/')
   }
 }
 </script>

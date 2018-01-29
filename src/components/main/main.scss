@@ -1,0 +1,44 @@
+.day-title {
+    text-transform: uppercase;
+    font-size: 24px;
+}
+.card-title {
+    color: #444;
+}
+.card-image {
+    width: 85%;
+}
+.card-subtitle {
+    color: #777;
+}
+.card-text {
+    display: block; /* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  color: #444;
+  overflow: hidden;
+  font-size: 14px;
+  max-height: 6em;
+  line-height: 1.5em;
+}
+
+.yt-card {
+    &:hover {
+        cursor: pointer;
+        text-decoration: none;
+    }
+}
+
+.no-search {
+    font-size: 32px;
+    color: #bdbdbd;
+    font-weight: 600;
+    margin: 100px auto;
+}
+
+.no-video {
+    font-size: 24px;
+    color: #bdbdbd;
+    // font-weight: 600;
+    margin: 50px auto 70px auto;
+}

@@ -1,9 +1,19 @@
+a {
+	color: #fff;
+}
 .navbar-red, .btn-conf {
 	background-color: #f73c39;
 	color: #fff;
 }
+.navbar-red {
+	box-shadow: 0 3px 6px #ccc;
+}
 .input-group {
 	max-width: 450px;
+	border: none;
+}
+.input-group-text {
+	border: none;
 }
 
 label, p {

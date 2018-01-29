@@ -2,3 +2,7 @@
     display: block;
     background-color: rgba(20, 20, 20, 0.85);
 }
+.modal-body {
+    overflow: auto;
+    max-height: 400px;
+}

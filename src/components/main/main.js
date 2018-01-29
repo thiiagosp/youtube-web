@@ -13,7 +13,7 @@ export default {
       videos: null,
       results: null,
       schedule: [],
-      topKeywords: []
+      topKeywords: ''
     }
   },
   mounted() {
@@ -53,12 +53,12 @@ export default {
       return moment.duration(duration).asMinutes()
     },
     getKeywords: function () {
-      this.topKeywords = []
+      this.topKeywords = ''
       let keywords = {}
       if (this.videos) {
         this.videos.forEach(video => {
-          let words = video.snippet.title.split(' ')
-          words = words.concat(video.snippet.description.split(' '))
+          let words = video.snippet.title.replace(/[^\w\s]/gi, '').split(' ')
+          words = words.concat(video.snippet.description.replace(/[^\w\s]/gi, '').split(' '))
 
           words.forEach(word => {
             word = word.toLowerCase()
@@ -76,7 +76,7 @@ export default {
           return keywords[a] > keywords[b] ? a : b;
         })
         keys.splice(keys.indexOf(r), 1)
-        this.topKeywords.push(r)
+        this.topKeywords += ` ${r},`
       }
     },
     getWeek: function () {
