@@ -1,21 +1,14 @@
-# youtube-web
+# Youtube Test
 
-> A Vue.js project
+> A simple project, use a youtube API for video search and organization per day, with a maximum daily time limit, customizable by the user. Using tecnologies like Vue and Bootstrap.
 
-## Build Setup
+## How to test
 
 ``` bash
-# install dependencies
-npm install
+# run the command bellow to install dependencies
+npm i
 
-# serve with hot reload at localhost:8080
+# run the command bellow to start a server (http://localhost:3000)
 npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
